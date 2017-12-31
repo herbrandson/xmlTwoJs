@@ -22,8 +22,7 @@
   },
   "homepage": "https://github.com/herbrandson/xmlTwoJs#readme",
   "dependencies": {
-    "sax": "git+https://github.com/herbrandson/sax-js.git",
-    "xml2js": "^0.4.19"
+    "sax": "git+https://github.com/herbrandson/sax-js.git"
   },
   "devDependencies": {
     "mocha": "^4.1.0",
