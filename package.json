@@ -1,0 +1,32 @@
+{
+  "name": "xmltwojs",
+  "version": "1.0.0",
+  "description": "Simple XML to JavaScript object converter.",
+  "main": "index.js",
+  "scripts": {
+    "posttest": "standard -F",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herbrandson/xmlTwoJs.git"
+  },
+  "keywords": [
+    "xml",
+    "converter"
+  ],
+  "author": "Eric Herbrandson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/herbrandson/xmlTwoJs/issues"
+  },
+  "homepage": "https://github.com/herbrandson/xmlTwoJs#readme",
+  "dependencies": {
+    "sax": "git+https://github.com/herbrandson/sax-js.git",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "mocha": "^4.1.0",
+    "standard": "^10.0.3"
+  }
+}
