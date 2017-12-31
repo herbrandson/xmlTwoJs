@@ -7,7 +7,7 @@ describe('xmlTwoJs', function () {
   it('can parse text', function () {
     var xml = '<node>test</node>'
     var result = parser.parse(xml)
-    assert.equal('test', result.node._text)
+    assert.equal('test', result.node._)
   })
 
   it('can parse attributes', function () {
@@ -19,14 +19,14 @@ describe('xmlTwoJs', function () {
   it('can parse child node', function () {
     var xml = '<node><child>test</child></node>'
     var result = parser.parse(xml)
-    assert.equal('test', result.node.child._text)
+    assert.equal('test', result.node.child._)
   })
 
   it('can parse child node array', function () {
     var xml = '<node><child>test1</child><child>test2</child></node>'
     var result = parser.parse(xml)
-    assert.equal('test1', result.node.child[0]._text)
-    assert.equal('test2', result.node.child[1]._text)
+    assert.equal('test1', result.node.child[0]._)
+    assert.equal('test2', result.node.child[1]._)
   })
 
   it('will throw errors', function () {

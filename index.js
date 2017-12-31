@@ -51,7 +51,7 @@ Parser.prototype = {
   },
 
   ontext: function (text) {
-    this.current._text = text
+    this.current._ = text
   },
 
   onclosetag: function () {
