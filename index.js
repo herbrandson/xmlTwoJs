@@ -14,6 +14,7 @@ Parser.prototype = {
     var result = {}
     this.stack = []
     this.current = result
+    this.err = undefined
 
     var parser = sax.parser(true, {position: false})
     parser.onerror = this.onerror
