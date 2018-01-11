@@ -1,12 +1,11 @@
-const sax = require('sax')
+var expat = require('node-expat')
 
 module.exports = {parse}
 
 function Parser () {
-  this.onerror = this.onerror.bind(this)
-  this.onopentag = this.onopentag.bind(this)
-  this.ontext = this.ontext.bind(this)
-  this.onclosetag = this.onclosetag.bind(this)
+  this.onStartElement = this.onStartElement.bind(this)
+  this.onText = this.onText.bind(this)
+  this.onEndElement = this.onEndElement.bind(this)
 }
 
 Parser.prototype = {
@@ -14,29 +13,22 @@ Parser.prototype = {
     var result = {}
     this.stack = []
     this.current = result
-    this.err = undefined
 
-    var parser = sax.parser(true, {position: false})
-    parser.onerror = this.onerror
-    parser.onopentag = this.onopentag
-    parser.ontext = this.ontext
-    parser.onclosetag = this.onclosetag
-    parser.write(xml).close()
+    var parser = new expat.Parser('UTF-8')
+    parser.on('startElement', this.onStartElement)
+    parser.on('text', this.onText)
+    parser.on('endElement', this.onEndElement)
+    var success = parser.write(xml)
 
-    if (this.err) {
-      throw this.err
+    if (!success) {
+      var error = parser.getError()
+      throw new Error(error)
     }
 
     return result
   },
 
-  onerror: function (err) {
-    this.err = err
-  },
-
-  onopentag: function (item) {
-    var name = item.name
-    var attributes = item.attributes
+  onStartElement: function (name, attributes) {
     var existing = this.current[name]
 
     if (!existing) {
@@ -51,11 +43,11 @@ Parser.prototype = {
     this.current = attributes
   },
 
-  ontext: function (text) {
+  onText: function (text) {
     this.current._ = text
   },
 
-  onclosetag: function () {
+  onEndElement: function () {
     this.current = this.stack.pop()
   }
 }

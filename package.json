@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/herbrandson/xmlTwoJs#readme",
   "dependencies": {
-    "sax": "git+https://github.com/herbrandson/sax-js.git"
+    "node-expat": "^2.3.16"
   },
   "devDependencies": {
     "mocha": "^4.1.0",

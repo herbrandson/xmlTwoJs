@@ -31,11 +31,11 @@ describe('xmlTwoJs', function () {
 
   it('will throw errors', function () {
     try {
-      var xml = '<node'
+      var xml = '</node>'
       parser.parse(xml)
       assert.fail('Should have thrown')
     } catch (err) {
-      assert.equal('Unexpected end', err.message)
+      assert.equal('Unhandled "error" event. (not well-formed (invalid token))', err.message)
     }
   })
 })
