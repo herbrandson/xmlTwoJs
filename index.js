@@ -1,6 +1,6 @@
 var expat = require('node-expat')
 
-module.exports = {parse}
+module.exports = { parse }
 
 function Parser () {
   this.onStartElement = this.onStartElement.bind(this)
@@ -48,7 +48,7 @@ Parser.prototype = {
       this.current._ += text
     } else {
       this.current._ = text
-    }    
+    }
   },
 
   onEndElement: function () {
