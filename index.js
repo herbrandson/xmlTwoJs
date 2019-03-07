@@ -44,7 +44,11 @@ Parser.prototype = {
   },
 
   onText: function (text) {
-    this.current._ = text
+    if (this.current._) {
+      this.current._ += text
+    } else {
+      this.current._ = text
+    }    
   },
 
   onEndElement: function () {

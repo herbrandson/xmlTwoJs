@@ -10,6 +10,12 @@ describe('xmlTwoJs', function () {
     assert.equal('test', result.node._)
   })
 
+  it('can parse multiple lines of text', function () {
+    var xml = '<node>test1\ntest2\ntest3\n</node>'
+    var result = parser.parse(xml)
+    assert.equal('test1\ntest2\ntest3\n', result.node._)
+  })
+
   it('can parse attributes', function () {
     var xml = '<node text="test" />'
     var result = parser.parse(xml)
@@ -35,7 +41,7 @@ describe('xmlTwoJs', function () {
       parser.parse(xml)
       assert.fail('Should have thrown')
     } catch (err) {
-      assert.equal('Unhandled "error" event. (not well-formed (invalid token))', err.message)
+      assert.equal('Unhandled error. (not well-formed (invalid token))', err.message)
     }
   })
 })
