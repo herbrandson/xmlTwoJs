@@ -1,6 +1,6 @@
 {
   "name": "xmltwojs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple XML to JavaScript object converter.",
   "main": "index.js",
   "scripts": {
