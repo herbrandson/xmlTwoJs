@@ -10,7 +10,7 @@ Simplest way to install `xml2js` is to use [npm](http://npmjs.org), just `npm in
 # Example
 ```javascript
 const xmltwojs = require('xmltwojs');
-const json = xmltwojs.parse('<root attr="7">Hello xmltwojs!</root>');
+const json = await xmltwojs.parse('<root attr="7">Hello xmltwojs!</root>');
 console.log(json);
 ```
 
@@ -44,7 +44,7 @@ const xml = `<root>
     </array2>
 </root>`;
 
-const json = xmltwojs.parse(xml);
+const json = await xmltwojs.parse(xml);
 console.log(json);
 
 ```

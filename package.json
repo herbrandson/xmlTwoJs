@@ -1,6 +1,6 @@
 {
   "name": "xmltwojs",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Simple XML to JavaScript object converter.",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,8 @@
   },
   "keywords": [
     "xml",
+    "json",
+    "js",
     "converter"
   ],
   "author": "Eric Herbrandson",
@@ -22,10 +24,10 @@
   },
   "homepage": "https://github.com/herbrandson/xmlTwoJs#readme",
   "dependencies": {
-    "node-expat": "^2.3.17"
+    "expat-wasm": "^2.0.0"
   },
   "devDependencies": {
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.4",
     "standard": "^12.0.1"
   }
 }
