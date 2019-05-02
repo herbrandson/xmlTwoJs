@@ -44,4 +44,10 @@ describe('xmlTwoJs', function () {
       assert.strictEqual(`XML Parse Error`, err.message)
     }
   })
+
+  it('can parse namespaces', async function () {
+    var xml = '<x:node xmlns:x="http://www.w3.org/TR/html4/">test</x:node>'
+    var result = await parser.parse(xml)
+    assert.strictEqual('test', result['x:node']._)
+  })
 })

@@ -16,7 +16,7 @@ Parser.prototype = {
     this.current = result
 
     // var parser = new expat.Parser('UTF-8')
-    var parser = await XmlParser.create()
+    var parser = await XmlParser.create(null, XmlParser.NO_NAMESPACES)
     parser.on('startElement', this.onStartElement)
     parser.on('characterData', this.onText)
     parser.on('endElement', this.onEndElement)

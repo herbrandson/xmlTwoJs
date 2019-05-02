@@ -1,7 +1,7 @@
 
 # xmlTwoJs
 
-A super simple parser for converting xml to json. Roughly 2x as fast as [xml2js](https://www.npmjs.com/package/xml2js). Uses [node-expat](https://www.npmjs.com/package/node-expat) which is a native xml sax parser.
+A super simple parser for converting xml to json. Roughly 2x as fast as [xml2js](https://www.npmjs.com/package/xml2js). Uses [expat-wasm](https://www.npmjs.com/package/expat-wasm) which is a wasm based implementation of the fantastic expat native xml sax parser.
 
 # Installation
 
@@ -79,6 +79,3 @@ Note that `array1.item` is an array. But, since "array2" only has one "item" nod
 npm i
 npm test
 ```
-
-# Windows
-If you have issues running on windows, please review the instructions for compiling [node-expat](https://www.npmjs.com/package/node-expat).
