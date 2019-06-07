@@ -1,5 +1,4 @@
-// var expat = require('node-expat')
-const XmlParser = require('expat-wasm')
+var expat = require('node-expat')
 
 module.exports = { parse }
 
@@ -10,25 +9,22 @@ function Parser () {
 }
 
 Parser.prototype = {
-  parse: async function (xml) {
+  parse: function (xml) {
     var result = {}
     this.stack = []
     this.current = result
 
-    // var parser = new expat.Parser('UTF-8')
-    var parser = await XmlParser.create(null, XmlParser.NO_NAMESPACES)
+    var parser = new expat.Parser('UTF-8')
     parser.on('startElement', this.onStartElement)
-    parser.on('characterData', this.onText)
+    parser.on('text', this.onText)
     parser.on('endElement', this.onEndElement)
-    var success = parser.parse(xml)
+    var success = parser.write(xml)
 
     if (!success) {
       var error = parser.getError()
-      parser.destroy()
       throw new Error(error)
     }
 
-    parser.destroy()
     return result
   },
 

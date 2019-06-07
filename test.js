@@ -41,7 +41,7 @@ describe('xmlTwoJs', function () {
       await parser.parse(xml)
       assert.fail('Should have thrown')
     } catch (err) {
-      assert.strictEqual(`XML Parse Error`, err.message)
+      assert.strictEqual(`Unhandled error. ('not well-formed (invalid token)')`, err.message)
     }
   })
 

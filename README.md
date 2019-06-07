@@ -1,7 +1,7 @@
 
 # xmlTwoJs
 
-A super simple parser for converting xml to json. Roughly 2x as fast as [xml2js](https://www.npmjs.com/package/xml2js). Uses [expat-wasm](https://www.npmjs.com/package/expat-wasm) which is a wasm based implementation of the fantastic expat native xml sax parser.
+A super simple parser for converting xml to json. Roughly 2x as fast as [xml2js](https://www.npmjs.com/package/xml2js).
 
 # Installation
 
@@ -10,7 +10,7 @@ Simplest way to install `xml2js` is to use [npm](http://npmjs.org), just `npm in
 # Example
 ```javascript
 const xmltwojs = require('xmltwojs');
-const json = await xmltwojs.parse('<root attr="7">Hello xmltwojs!</root>');
+const json = xmltwojs.parse('<root attr="7">Hello xmltwojs!</root>');
 console.log(json);
 ```
 
@@ -44,7 +44,7 @@ const xml = `<root>
     </array2>
 </root>`;
 
-const json = await xmltwojs.parse(xml);
+const json = xmltwojs.parse(xml);
 console.log(json);
 
 ```
